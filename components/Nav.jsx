@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/Image";
+import Image from "next/image";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 //import
 const Nav = () => {

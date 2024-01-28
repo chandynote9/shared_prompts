@@ -1,5 +1,5 @@
 // import Prompt model
-import Prompt from "@models/Prompt";
+import Prompt from "@models/prompt";
 // import connect to db from utils
 import { connectToDB } from "@utils/database";
 
