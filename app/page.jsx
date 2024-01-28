@@ -1,5 +1,5 @@
 import Feed from "@components/Feed";
-
+// fixed import
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
