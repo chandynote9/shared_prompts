@@ -31,6 +31,7 @@ export const PATCH = async (request, { params }) => {
 
 export const DELETE = async (request, { params }) => {
   try {
+    console.log({ params });
     await connectToDB();
     await Prompt.findByIdAndRemove(params.id);
     return new Response("Successfully deleted", { status: 200 });

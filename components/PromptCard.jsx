@@ -15,14 +15,17 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     navigator.clipboard.writeText(post.prompt);
     setTimeout(() => setCopied(false), 3000);
   };
-  function handleProfileClick(params) {}
+  function handleProfileClick(params) {
+    if (post.creator._id === session?.user?.id) return router.push(`/profile`);
+    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+  }
 
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-satrt gap-5">
         <div
           className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
-          onclick={handleProfileClick}
+          onClick={handleProfileClick}
         >
           <Image
             src={post.creator.image}
@@ -56,7 +59,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       <p className="my-4 font-satoshi text-sm text-gray-700">{post.prompt}</p>
       <p
         className="font-inter text-sm blue_gradient cursor-pointer"
-        onclick={() => handleTagClick && handleTagClick(post.tag)}
+        onClick={() => handleTagClick && handleTagClick(post.tag)}
       >
         #{post.tag}
       </p>
